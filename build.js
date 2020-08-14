@@ -1,36 +1,48 @@
-const path = require("path")
+import babel from '@rollup/plugin-babel'
+import commonjs from '@rollup/plugin-commonjs'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
 
-module.exports = {
-  mode: "production",
-  devtool: "source-map",
-  entry: {
-    box: "./src/index.ts",
-  },
-  output: {
-    filename: "[name].js",
-    path: path.resolve(__dirname, "dist"),
-    library: "Box",
-    libraryTarget: "umd",
-    umdNamedDefine: true,
-  },
-  resolve: {
-    extensions: [".tsx", ".ts", ".js"],
-  },
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        exclude: /node_modules/,
-        loader: "babel-loader",
-      },
-    ],
-  },
-  externals: {
-    react: {
-      root: "React",
-      amd: "react",
-      commonjs2: "react",
-      commonjs: "react",
-    },
-  },
+import pkg from './package.json'
+
+const extensions = ['.js', '.jsx', '.ts', '.tsx']
+const input = 'src/index.ts'
+const external = [/@babel\/runtime/, 'react', 'styled-components']
+const globals = {
+  react: 'React',
+  'styled-components': 'styled'
 }
+
+const plugins = [
+  babel({
+    extensions,
+    exclude: 'node_modules/**',
+    babelHelpers: 'runtime'
+  }),
+  commonjs(),
+  nodeResolve({ extensions })
+]
+
+export default [
+  {
+    input,
+    output: {
+      file: pkg.module,
+      format: 'esm',
+      sourcemap: true,
+      globals
+    },
+    external,
+    plugins
+  },
+  {
+    input,
+    output: {
+      file: pkg.main,
+      format: 'cjs',
+      sourcemap: true,
+      globals
+    },
+    external,
+    plugins
+  }
+]

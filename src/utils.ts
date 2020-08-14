@@ -248,11 +248,13 @@ export const renderShadow = (shadow: ShadowProp) => {
 }
 
 const renderSubBorder = (prop: string, border: BorderProp) => {
+  let borderCSS: string
+
   if (typeof border === "string") {
-    const borderProp = `border-${prop}`
+    borderCSS = `border-${prop}: ${border};`
 
     return css`
-      ${borderProp}: ${border};
+      ${borderCSS}
     `
   }
 
@@ -262,21 +264,23 @@ const renderSubBorder = (prop: string, border: BorderProp) => {
 
       if (typeof value === "undefined") return css``
 
+      borderCSS = `border-${prop}-${key}: ${renderValue(value)};`
+
       switch (key) {
         case "size": {
           return css`
-          border-${prop}-width: ${renderValue(value)};
-        `
+            ${borderCSS}
+          `
         }
         case "color": {
           return css`
-          border-${prop}-color: ${value};
-        `
+            ${borderCSS}
+          `
         }
         case "style": {
           return css`
-          border-${prop}-style: ${value};
-        `
+            ${borderCSS}
+          `
         }
         default: {
           return css``
