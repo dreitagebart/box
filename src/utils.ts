@@ -1,4 +1,4 @@
-import { css } from "styled-components"
+import { css } from 'styled-components'
 
 import {
   Value,
@@ -19,20 +19,20 @@ import {
   ShrinkProp,
   OverflowProp,
   RadiusProp,
-  WrapProp,
-} from "./types"
+  WrapProp
+} from './types'
 
 const FlexMap: { [key: string]: string } = {
-  start: "flex-start",
-  end: "flex-end",
-  stretch: "stretch",
-  baseline: "baseline",
-  initial: "initial",
-  inherit: "inherit",
-  center: "flex-end",
-  between: "space-between",
-  around: "space-around",
-  auto: "auto",
+  start: 'flex-start',
+  end: 'flex-end',
+  stretch: 'stretch',
+  baseline: 'baseline',
+  initial: 'initial',
+  inherit: 'inherit',
+  center: 'center',
+  between: 'space-between',
+  around: 'space-around',
+  auto: 'auto'
 }
 
 export const renderWrap = (wrap: WrapProp) => {
@@ -47,25 +47,25 @@ export const renderWrap = (wrap: WrapProp) => {
 }
 
 export const renderOverflow = (overflow: OverflowProp) => {
-  if (typeof overflow === "string") {
+  if (typeof overflow === 'string') {
     return css`
       overflow: ${overflow};
     `
   }
 
-  if (typeof overflow === "object") {
+  if (typeof overflow === 'object') {
     return Object.keys(overflow).map((key, index) => {
       const value = Object.values(overflow)[index]
 
-      if (typeof value === "undefined") return css``
+      if (typeof value === 'undefined') return css``
 
       switch (key) {
-        case "x": {
+        case 'x': {
           return css`
             overflow-x: ${value};
           `
         }
-        case "y": {
+        case 'y': {
           return css`
             overflow-y: ${value};
           `
@@ -79,59 +79,59 @@ export const renderOverflow = (overflow: OverflowProp) => {
 }
 
 export const renderRadius = (radius: RadiusProp) => {
-  if (typeof radius === "string" || typeof radius === "number") {
+  if (typeof radius === 'string' || typeof radius === 'number') {
     return css`
       border-radius: ${renderValue(radius)};
     `
   }
 
-  if (typeof radius === "object") {
+  if (typeof radius === 'object') {
     return Object.keys(radius).map((key, index) => {
       const value = Object.values(radius)[index]
 
-      if (typeof value === "undefined") return css``
+      if (typeof value === 'undefined') return css``
 
       switch (key) {
-        case "top": {
+        case 'top': {
           return css`
             border-top-left-radius: ${renderValue(value)};
             border-top-right-radius: ${renderValue(value)};
           `
         }
-        case "right": {
+        case 'right': {
           return css`
             border-top-right-radius: ${renderValue(value)};
             border-bottom-right-radius: ${renderValue(value)};
           `
         }
-        case "bottom": {
+        case 'bottom': {
           return css`
             border-bottom-right-radius: ${renderValue(value)};
             border-bottom-left-radius: ${renderValue(value)};
           `
         }
-        case "left": {
+        case 'left': {
           return css`
             border-top-left-radius: ${renderValue(value)};
             border-bottom-left-radius: ${renderValue(value)};
           `
         }
-        case "topLeft": {
+        case 'topLeft': {
           return css`
             border-top-left-radius: ${renderValue(value)};
           `
         }
-        case "topRight": {
+        case 'topRight': {
           return css`
             border-top-right-radius: ${renderValue(value)};
           `
         }
-        case "bottomLeft": {
+        case 'bottomLeft': {
           return css`
             border-bottom-left-radius: ${renderValue(value)};
           `
         }
-        case "bottomRight": {
+        case 'bottomRight': {
           return css`
             border-bottom-right-radius: ${renderValue(value)};
           `
@@ -187,7 +187,7 @@ export const renderSelf = (self: SelfProp) => {
 }
 
 export const renderValue = (value: Value): string => {
-  if (typeof value === "number") {
+  if (typeof value === 'number') {
     return `${value}px`
   }
 
@@ -202,41 +202,41 @@ export const renderDirection = (direction: DirectionProp) => {
 
 export const renderShadow = (shadow: ShadowProp) => {
   switch (shadow) {
-    case "xxs": {
+    case 'xxs': {
       return css`
         box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
       `
     }
-    case "xs": {
+    case 'xs': {
       return css`
         box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
       `
     }
-    case "sm": {
+    case 'sm': {
       return css`
         box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
           0 1px 2px 0 rgba(0, 0, 0, 0.06);
       `
     }
-    case "md": {
+    case 'md': {
       return css`
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
           0 2px 4px -1px rgba(0, 0, 0, 0.06);
       `
     }
-    case "lg": {
+    case 'lg': {
       return css`
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
           0 4px 6px -2px rgba(0, 0, 0, 0.05);
       `
     }
-    case "xl": {
+    case 'xl': {
       return css`
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
           0 10px 10px -5px rgba(0, 0, 0, 0.04);
       `
     }
-    case "xxl": {
+    case 'xxl': {
       return css`
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
       `
@@ -250,7 +250,7 @@ export const renderShadow = (shadow: ShadowProp) => {
 const renderSubBorder = (prop: string, border: BorderProp) => {
   let borderCSS: string
 
-  if (typeof border === "string") {
+  if (typeof border === 'string') {
     borderCSS = `border-${prop}: ${border};`
 
     return css`
@@ -258,26 +258,26 @@ const renderSubBorder = (prop: string, border: BorderProp) => {
     `
   }
 
-  if (typeof border === "object") {
+  if (typeof border === 'object') {
     return Object.keys(border).map((key, index) => {
       const value = Object.values(border)[index]
 
-      if (typeof value === "undefined") return css``
+      if (typeof value === 'undefined') return css``
 
       borderCSS = `border-${prop}-${key}: ${renderValue(value)};`
 
       switch (key) {
-        case "size": {
+        case 'size': {
           return css`
             ${borderCSS}
           `
         }
-        case "color": {
+        case 'color': {
           return css`
             ${borderCSS}
           `
         }
-        case "style": {
+        case 'style': {
           return css`
             ${borderCSS}
           `
@@ -291,45 +291,45 @@ const renderSubBorder = (prop: string, border: BorderProp) => {
 }
 
 export const renderBorder = (border: BorderProp) => {
-  if (typeof border === "string") {
+  if (typeof border === 'string') {
     return css`
       border: ${border};
     `
   }
 
-  if (typeof border === "object") {
+  if (typeof border === 'object') {
     return Object.keys(border).map((key, index) => {
       const value = Object.values(border)[index]
 
-      if (typeof value === "undefined") return css``
+      if (typeof value === 'undefined') return css``
 
       switch (key) {
-        case "size": {
+        case 'size': {
           return css`
             border-width: ${renderValue(value)};
           `
         }
-        case "color": {
+        case 'color': {
           return css`
             border-color: ${value};
           `
         }
-        case "style": {
+        case 'style': {
           return css`
             border-style: ${value};
           `
         }
-        case "top": {
-          return renderSubBorder("top", value)
+        case 'top': {
+          return renderSubBorder('top', value)
         }
-        case "right": {
-          return renderSubBorder("right", value)
+        case 'right': {
+          return renderSubBorder('right', value)
         }
-        case "bottom": {
-          return renderSubBorder("bottom", value)
+        case 'bottom': {
+          return renderSubBorder('bottom', value)
         }
-        case "left": {
-          return renderSubBorder("left", value)
+        case 'left': {
+          return renderSubBorder('left', value)
         }
         default: {
           return css``
@@ -340,46 +340,46 @@ export const renderBorder = (border: BorderProp) => {
 }
 
 export const renderMargin = (margin: MarginProp) => {
-  if (typeof margin === "string" || typeof margin === "number") {
+  if (typeof margin === 'string' || typeof margin === 'number') {
     return css`
       margin: ${renderValue(margin)};
     `
   }
 
-  if (typeof margin === "object") {
+  if (typeof margin === 'object') {
     return Object.keys(margin).map((key, index) => {
       const value = Object.values(margin)[index]
 
-      if (typeof value === "undefined") return css``
+      if (typeof value === 'undefined') return css``
 
       switch (key) {
-        case "top": {
+        case 'top': {
           return css`
             margin-top: ${renderValue(value)};
           `
         }
-        case "right": {
+        case 'right': {
           return css`
             margin-right: ${renderValue(value)};
           `
         }
-        case "bottom": {
+        case 'bottom': {
           return css`
             margin-bottom: ${renderValue(value)};
           `
         }
-        case "left": {
+        case 'left': {
           return css`
             margin-left: ${renderValue(value)};
           `
         }
-        case "vertical": {
+        case 'vertical': {
           return css`
             margin-top: ${renderValue(value)};
             margin-bottom: ${renderValue(value)};
           `
         }
-        case "horizontal": {
+        case 'horizontal': {
           return css`
             margin-right: ${renderValue(value)};
             margin-left: ${renderValue(value)};
@@ -394,46 +394,46 @@ export const renderMargin = (margin: MarginProp) => {
 }
 
 export const renderPadding = (padding: PaddingProp) => {
-  if (typeof padding === "string" || typeof padding === "number") {
+  if (typeof padding === 'string' || typeof padding === 'number') {
     return css`
       padding: ${renderValue(padding)};
     `
   }
 
-  if (typeof padding === "object") {
+  if (typeof padding === 'object') {
     return Object.keys(padding).map((key, index) => {
       const value = Object.values(padding)[index]
 
-      if (typeof value === "undefined") return css``
+      if (typeof value === 'undefined') return css``
 
       switch (key) {
-        case "top": {
+        case 'top': {
           return css`
             padding-top: ${renderValue(value)};
           `
         }
-        case "right": {
+        case 'right': {
           return css`
             padding-right: ${renderValue(value)};
           `
         }
-        case "bottom": {
+        case 'bottom': {
           return css`
             padding-bottom: ${renderValue(value)};
           `
         }
-        case "left": {
+        case 'left': {
           return css`
             padding-left: ${renderValue(value)};
           `
         }
-        case "vertical": {
+        case 'vertical': {
           return css`
             padding-top: ${renderValue(value)};
             padding-bottom: ${renderValue(value)};
           `
         }
-        case "horizontal": {
+        case 'horizontal': {
           return css`
             padding-right: ${renderValue(value)};
             padding-left: ${renderValue(value)};
@@ -454,25 +454,25 @@ export const renderBackground = (background: BackgroundProp) => {
 }
 
 export const renderWidth = (width: WidthProp) => {
-  if (typeof width === "string" || typeof width === "number") {
+  if (typeof width === 'string' || typeof width === 'number') {
     return css`
       width: ${renderValue(width)};
     `
   }
 
-  if (typeof width === "object") {
+  if (typeof width === 'object') {
     return Object.keys(width).map((key, index) => {
       const value = Object.values(width)[index]
 
-      if (typeof value === "undefined") return css``
+      if (typeof value === 'undefined') return css``
 
       switch (key) {
-        case "min": {
+        case 'min': {
           return css`
             min-width: ${renderValue(value)};
           `
         }
-        case "max": {
+        case 'max': {
           return css`
             max-width: ${renderValue(value)};
           `
@@ -486,25 +486,25 @@ export const renderWidth = (width: WidthProp) => {
 }
 
 export const renderHeight = (height: HeightProp) => {
-  if (typeof height === "string" || typeof height === "number") {
+  if (typeof height === 'string' || typeof height === 'number') {
     return css`
       height: ${renderValue(height)};
     `
   }
 
-  if (typeof height === "object") {
+  if (typeof height === 'object') {
     return Object.keys(height).map((key, index) => {
       const value = Object.values(height)[index]
 
-      if (typeof value === "undefined") return css``
+      if (typeof value === 'undefined') return css``
 
       switch (key) {
-        case "min": {
+        case 'min': {
           return css`
             min-height: ${renderValue(value)};
           `
         }
-        case "max": {
+        case 'max': {
           return css`
             max-height: ${renderValue(value)};
           `

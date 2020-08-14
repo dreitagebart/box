@@ -1,7 +1,7 @@
-import React, { Children, CSSProperties, ReactNode } from "react"
-import styled from "styled-components"
+import React, { Children, CSSProperties } from 'react'
+import styled from 'styled-components'
 
-import Gutter from "./Gutter"
+import Gutter from './Gutter'
 import {
   BackgroundProp,
   MarginProp,
@@ -12,7 +12,6 @@ import {
   DirectionProp,
   BorderProp,
   ShadowProp,
-  FillProp,
   GutterProp,
   HeightProp,
   WidthProp,
@@ -22,8 +21,8 @@ import {
   OverflowProp,
   SelfProp,
   GrowProp,
-  ShrinkProp,
-} from "./types"
+  ShrinkProp
+} from './types'
 import {
   renderBorder,
   renderMargin,
@@ -42,8 +41,8 @@ import {
   renderGrow,
   renderOverflow,
   renderRadius,
-  renderWrap,
-} from "./utils"
+  renderWrap
+} from './utils'
 
 export interface BoxProps {
   style?: CSSProperties
@@ -107,14 +106,14 @@ export const Box: React.FC<BoxProps> = ({
   shadow,
   gutter,
   onClick,
-  direction = "column",
+  direction = 'column',
   margin,
   padding,
   background,
   height,
   width,
   wrap,
-  border,
+  border
 }) => {
   let contents: any = children
 
