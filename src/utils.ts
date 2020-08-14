@@ -249,8 +249,10 @@ export const renderShadow = (shadow: ShadowProp) => {
 
 const renderSubBorder = (prop: string, border: BorderProp) => {
   if (typeof border === "string") {
+    const borderProp = `border-${prop}`
+
     return css`
-      border-${prop}: ${border};
+      ${borderProp}: ${border};
     `
   }
 

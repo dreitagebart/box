@@ -1,6 +1,6 @@
 {
   "name": "@dreitagebart/box",
-  "typings": "./dist/index.d.ts",
+  "types": "./dist/index.d.ts",
   "version": "1.0.0",
   "description": "universal react box component to do useful stuff",
   "main": "./dist/index.js",
