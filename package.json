@@ -1,0 +1,44 @@
+{
+  "name": "@dreitagebart/box",
+  "typings": "./dist/index.d.ts",
+  "version": "1.0.0",
+  "description": "universal react box component to do useful stuff",
+  "main": "./dist/index.js",
+  "repository": "https://github.com/dreitagebart/box.git",
+  "author": "dreitagebart <stefan.buechold@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "shx rm -rf dist",
+    "type-check": "tsc --noEmit",
+    "prebuild": "npm run clean",
+    "dev": "webpack --mode development --config ./build.js",
+    "build": "tsc && webpack --config ./build.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@storybook/addon-actions": "^6.0.5",
+    "@storybook/addon-essentials": "^6.0.5",
+    "@storybook/addon-links": "^6.0.5",
+    "@storybook/addon-storysource": "^6.0.6",
+    "@storybook/react": "^6.0.5",
+    "@types/react": "^16.9.46",
+    "@types/styled-components": "^5.1.2",
+    "babel-loader": "^8.1.0",
+    "react-is": "^16.13.1",
+    "shx": "^0.3.2",
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "styled-components": "^5.1.1"
+  }
+}
