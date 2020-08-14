@@ -39,6 +39,8 @@
   },
   "dependencies": {
     "@types/react": "^16.9.46",
-    "@types/styled-components": "^5.1.2"
+    "@types/styled-components": "^5.1.2",
+    "gatsby-cli": "^2.12.87",
+    "global": "^4.4.0"
   }
 }
