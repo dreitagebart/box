@@ -36,6 +36,8 @@ const FlexMap: { [key: string]: string } = {
 }
 
 export const renderWrap = (wrap: WrapProp) => {
+  if (typeof wrap === 'undefined') return
+
   if (wrap)
     return css`
       flex-wrap: wrap;
@@ -151,36 +153,48 @@ export const renderGrow = (grow: GrowProp) => {
 }
 
 export const renderShrink = (shrink: ShrinkProp) => {
+  if (typeof shrink === 'undefined') return
+
   return css`
     flex-shrink: ${shrink};
   `
 }
 
 export const renderBasis = (basis: BasisProp) => {
+  if (typeof basis === 'undefined') return
+
   return css`
     flex-basis: ${renderValue(basis)};
   `
 }
 
 export const renderAlign = (align: AlignProp) => {
+  if (typeof align === 'undefined') return
+
   return css`
     align-items: ${FlexMap[align]};
   `
 }
 
 export const renderAlignContent = (alignContent: AlignContentProp) => {
+  if (typeof alignContent === 'undefined') return
+
   return css`
     align-content: ${FlexMap[alignContent]};
   `
 }
 
 export const renderJustify = (justify: JustifyProp) => {
+  if (typeof justify === 'undefined') return
+
   return css`
     justify-content: ${FlexMap[justify]};
   `
 }
 
 export const renderSelf = (self: SelfProp) => {
+  if (typeof self === 'undefined') return
+
   return css`
     align-self: ${FlexMap[self]};
   `

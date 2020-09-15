@@ -45,6 +45,7 @@ import {
 } from './utils'
 
 export interface BoxProps {
+  className?: string
   style?: CSSProperties
   self?: SelfProp
   margin?: MarginProp
@@ -68,10 +69,34 @@ export interface BoxProps {
   wrap?: WrapProp
 }
 
-const Wrapper = styled.div<BoxProps>`
+export interface WrapperProps {
+  className?: string
+  style?: CSSProperties
+  self: SelfProp
+  margin: MarginProp
+  align: AlignProp
+  alignContent: AlignContentProp
+  background: BackgroundProp
+  basis: BasisProp
+  border: BorderProp
+  direction: DirectionProp
+  shadow: ShadowProp
+  grow: GrowProp
+  shrink: ShrinkProp
+  gutter: GutterProp
+  height: HeightProp
+  justify: JustifyProp
+  overflow: OverflowProp
+  padding: PaddingProp
+  radius: RadiusProp
+  width: WidthProp
+  wrapping: WrapProp
+}
+
+const Wrapper = styled.div<WrapperProps>`
   display: flex;
   box-sizing: border-box;
-  ${({ wrap }) => wrap && renderWrap(wrap)}
+  ${({ wrapping }) => wrapping && renderWrap(wrapping)}
   ${({ overflow }) => overflow && renderOverflow(overflow)}
   ${({ radius }) => radius && renderRadius(radius)}
   ${({ grow }) => grow && renderGrow(grow)}
@@ -92,6 +117,7 @@ const Wrapper = styled.div<BoxProps>`
 `
 
 export const Box: React.FC<BoxProps> = ({
+  className,
   radius,
   overflow,
   grow,
@@ -142,9 +168,11 @@ export const Box: React.FC<BoxProps> = ({
 
   return (
     <Wrapper
+      gutter={gutter}
       radius={radius}
       overflow={overflow}
       basis={basis}
+      className={className}
       style={style}
       shadow={shadow}
       onClick={onClick}
@@ -161,7 +189,7 @@ export const Box: React.FC<BoxProps> = ({
       alignContent={alignContent}
       grow={grow}
       shrink={shrink}
-      wrap={wrap}
+      wrapping={wrap}
     >
       {contents}
     </Wrapper>

@@ -5,10 +5,10 @@ type Border =
   | {
       size: Value
       color: string
-      style: "solid" | "dashed" | "dotted"
+      style: 'solid' | 'dashed' | 'dotted'
     }
 
-type Overflow = "auto" | "hidden" | "scroll" | "visible" | "initial" | "inherit"
+type Overflow = 'auto' | 'hidden' | 'scroll' | 'visible' | 'initial' | 'inherit'
 
 type Background = string
 
@@ -21,39 +21,42 @@ type Edges = {
   horizontal?: Value
 }
 
-export type BackgroundProp = Background
+export type BackgroundProp = Background | undefined
 
 export type AlignProp =
-  | "start"
-  | "center"
-  | "end"
-  | "baseline"
-  | "stretch"
-  | "initial"
-  | "inherit"
+  | 'start'
+  | 'center'
+  | 'end'
+  | 'baseline'
+  | 'stretch'
+  | 'initial'
+  | 'inherit'
+  | undefined
 
 export type AlignContentProp =
-  | "start"
-  | "center"
-  | "end"
-  | "between"
-  | "around"
-  | "stretch"
-  | "initial"
-  | "inherit"
+  | 'start'
+  | 'center'
+  | 'end'
+  | 'between'
+  | 'around'
+  | 'stretch'
+  | 'initial'
+  | 'inherit'
+  | undefined
 
 export type JustifyProp =
-  | "start"
-  | "center"
-  | "end"
-  | "between"
-  | "around"
-  | "initial"
-  | "inherit"
+  | 'start'
+  | 'center'
+  | 'end'
+  | 'between'
+  | 'around'
+  | 'initial'
+  | 'inherit'
+  | undefined
 
-export type MarginProp = "inherit" | "auto" | Value | Edges
+export type MarginProp = 'inherit' | 'auto' | Value | Edges | undefined
 
-export type PaddingProp = "inherit" | "auto" | Value | Edges
+export type PaddingProp = 'inherit' | 'auto' | Value | Edges | undefined
 
 export type BorderProp =
   | Border
@@ -63,28 +66,37 @@ export type BorderProp =
       bottom?: Border
       left?: Border
     }
+  | undefined
 
-export type BasisProp = Value | "auto" | "initial" | "inherit"
+export type BasisProp = Value | 'auto' | 'initial' | 'inherit' | undefined
 
-export type GrowProp = number | "initial" | "inherit"
+export type GrowProp = number | 'initial' | 'inherit' | undefined
 
-export type ShrinkProp = number | "initial" | "inherit"
+export type ShrinkProp = number | 'initial' | 'inherit' | undefined
 
-export type WrapProp = boolean
+export type WrapProp = boolean | undefined
 
-export type DirectionProp = "row" | "column"
+export type DirectionProp = 'row' | 'column'
 
-export type ShadowProp = "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl"
+export type ShadowProp =
+  | 'xxs'
+  | 'xs'
+  | 'sm'
+  | 'md'
+  | 'lg'
+  | 'xl'
+  | 'xxl'
+  | undefined
 
-export type FillProp = "horizontal" | "vertical" | boolean
+export type FillProp = 'horizontal' | 'vertical' | boolean | undefined
 
-export type GutterProp = Value
+export type GutterProp = Value | undefined
 
-export type HeightProp = Value | { min?: Value; max?: Value }
+export type HeightProp = Value | { min?: Value; max?: Value } | undefined
 
-export type WidthProp = Value | { min?: Value; max?: Value }
+export type WidthProp = Value | { min?: Value; max?: Value } | undefined
 
-export type OverflowProp = Overflow | { x?: Overflow; y?: Overflow }
+export type OverflowProp = Overflow | { x?: Overflow; y?: Overflow } | undefined
 
 export type RadiusProp =
   | Value
@@ -98,13 +110,15 @@ export type RadiusProp =
       bottomLeft?: Value
       bottomRight?: Value
     }
+  | undefined
 
 export type SelfProp =
-  | "auto"
-  | "stretch"
-  | "center"
-  | "start"
-  | "end"
-  | "baseline"
-  | "initial"
-  | "inherit"
+  | 'auto'
+  | 'stretch'
+  | 'center'
+  | 'start'
+  | 'end'
+  | 'baseline'
+  | 'initial'
+  | 'inherit'
+  | undefined

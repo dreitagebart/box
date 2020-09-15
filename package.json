@@ -1,7 +1,7 @@
 {
   "name": "@dreitagebart/box",
   "types": "./dist/index.d.ts",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "description": "universal react box component to do useful stuff",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "@types/react": "^16.9.46",
-    "@types/styled-components": "^5.1.2"
+    "@types/styled-components": "^5.1.2",
+    "polished": "^3.6.5"
   }
 }

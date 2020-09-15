@@ -1,8 +1,8 @@
-import React from "react"
-import styled, { css } from "styled-components"
+import React from 'react'
+import styled, { css } from 'styled-components'
 
-import { renderValue } from "./utils"
-import { GutterProp, DirectionProp, BorderProp } from "./types"
+import { renderValue } from './utils'
+import { GutterProp, DirectionProp, BorderProp } from './types'
 
 interface Props {
   gutter: GutterProp
@@ -10,7 +10,12 @@ interface Props {
 }
 
 const renderGutter = (gutter: GutterProp, direction: DirectionProp) => {
-  if (direction === "row") {
+  if (typeof gutter === 'undefined')
+    return css`
+      width: 0;
+    `
+
+  if (direction === 'row') {
     return css`
       width: ${renderValue(gutter)};
     `

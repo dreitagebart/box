@@ -1000,10 +1000,10 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@dreitagebart/box@^1.0.0":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@dreitagebart/box/-/box-1.0.1.tgz#081e9ad5d06c13b0c628a3f00a5434f8c3cbf434"
-  integrity sha512-t/Pu8rNrPw8R1+rDrpajEPuoF97y13AunmzC0qsABW2mBJs61Y9sDHNbhGxEzfWV9fxxtf6R/SL++mSj1jN9HA==
+"@dreitagebart/box@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@dreitagebart/box/-/box-1.0.2.tgz#05921bd507f8e5621e053fb8b8440afd4b592b60"
+  integrity sha512-j4UmDsOaf6slDECMix035h85kfiDvbvdZProHZqpanILveuVGG0K/zlPOQoFGaw1G2w1xqIfrs4HezgtaiJNLw==
   dependencies:
     "@types/react" "^16.9.46"
     "@types/styled-components" "^5.1.2"

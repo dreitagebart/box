@@ -1,17 +1,19 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { createGlobalStyle } from "styled-components"
+import { normalize } from "polished"
 import { Helmet } from "react-helmet"
-import { Fragment } from "react"
 
 const Global = createGlobalStyle`
- body {
-   font-size: 16px;
-   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
- }
+  ${normalize()}
+ 
+  body {
+    font-size: 16px;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  }
 
- a {
-   text-decoration: none;
- }
+  a {
+    text-decoration: none;
+  }
 `
 
 export const GlobalStyle: React.FC = () => {
